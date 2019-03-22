@@ -52,6 +52,16 @@ public class Operator implements Serializable {
     private String openId;
 
     /**
+     * 头像路径
+     */
+    private String iconPath;
+
+    /**
+     * 头像id
+     */
+    private String iconId;
+
+    /**
      * 状态
      */
     private Integer state = StateEnum.START.getCode();

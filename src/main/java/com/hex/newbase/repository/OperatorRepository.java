@@ -9,4 +9,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
  * Time: 2:47 PM
  */
 public interface OperatorRepository extends JpaRepository<Operator, String> {
+    Operator findByNameAndAndPassword(String name, String password);
 }

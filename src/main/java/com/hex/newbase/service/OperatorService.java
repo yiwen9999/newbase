@@ -16,4 +16,6 @@ public interface OperatorService {
     Optional<Operator> findById(String id);
 
     void delete(String id);
+
+    Operator login(String name,String password);
 }

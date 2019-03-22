@@ -17,7 +17,27 @@ spring:
     restart:
       enabled: true
       additional-paths: src/main/java
+  jackson:
+    serialization:
+      FAIL_ON_EMPTY_BEANS: false
+  redis:
+      database: 0
+      host: localhost
+      port: 6379
+      lettuce:
+        pool:
+          max-active: 8
+          max-wait: -1
+          max-idle: 8
+          min-idle: 0
+
+
 
 web:
   upload-path: /Users/hexuan/Desktop/develop/upload_file_newbase/
   zip-file-limit: 200000
+  file-server-path: http://127.0.0.1:8082
+
+
+# spring:redis:password:
+

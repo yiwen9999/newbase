@@ -32,4 +32,9 @@ public class OperatorServiceImpl implements OperatorService {
     public void delete(String id) {
         operatorRepository.deleteById(id);
     }
+
+    @Override
+    public Operator login(String name, String password) {
+        return operatorRepository.findByNameAndAndPassword(name, password);
+    }
 }
