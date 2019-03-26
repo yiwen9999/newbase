@@ -17,9 +17,6 @@ spring:
     restart:
       enabled: true
       additional-paths: src/main/java
-  jackson:
-    serialization:
-      FAIL_ON_EMPTY_BEANS: false
   redis:
       database: 0
       host: localhost
@@ -31,13 +28,15 @@ spring:
           max-idle: 8
           min-idle: 0
 
-
-
 web:
   upload-path: /Users/hexuan/Desktop/develop/upload_file_newbase/
   zip-file-limit: 200000
-  file-server-path: http://127.0.0.1:8082
+  server-path: localhost
+  token-name: hex_login_token
 
 
 # spring:redis:password:
 
+#  jackson:
+#    serialization:
+#      FAIL_ON_EMPTY_BEANS: false

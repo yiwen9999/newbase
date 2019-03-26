@@ -2,8 +2,6 @@ package com.hex.newbase.form;
 
 import lombok.Data;
 
-import javax.persistence.Column;
-
 /**
  * User: hexuan
  * Date: 2019/3/18

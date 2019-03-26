@@ -1,24 +1,28 @@
 package com.hex.newbase.util;
 
+import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- * Created by geely
- */
 @Slf4j
+@Component
+@Data
 public class CookieUtil {
 
     //    private final static String COOKIE_DOMAIN = ".happymmall.com";
-    private final static String COOKIE_DOMAIN = "localhost";
-    private final static String COOKIE_NAME = "hex_login_token";
+    @Value("${web.server-path}")
+    private String COOKIE_DOMAIN;
 
+    @Value("${web.token-name}")
+    private String COOKIE_NAME;
 
-    public static String readLoginToken(HttpServletRequest request) {
+    public String readLoginToken(HttpServletRequest request) {
         Cookie[] cks = request.getCookies();
         if (cks != null) {
             for (Cookie ck : cks) {
@@ -32,7 +36,7 @@ public class CookieUtil {
         return null;
     }
 
-    public static void writeLoginToken(HttpServletResponse response, String token) {
+    public void writeLoginToken(HttpServletResponse response, String token) {
         Cookie ck = new Cookie(COOKIE_NAME, token);
         ck.setDomain(COOKIE_DOMAIN);
         ck.setPath("/");//代表设置在根目录
@@ -45,7 +49,7 @@ public class CookieUtil {
     }
 
 
-    public static void delLoginToken(HttpServletRequest request, HttpServletResponse response) {
+    public void delLoginToken(HttpServletRequest request, HttpServletResponse response) {
         Cookie[] cks = request.getCookies();
         if (cks != null) {
             for (Cookie ck : cks) {
@@ -60,6 +64,5 @@ public class CookieUtil {
             }
         }
     }
-
 
 }

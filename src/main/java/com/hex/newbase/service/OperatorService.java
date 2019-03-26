@@ -17,5 +17,5 @@ public interface OperatorService {
 
     void delete(String id);
 
-    Operator login(String name,String password);
+    Operator login(String name, String password);
 }

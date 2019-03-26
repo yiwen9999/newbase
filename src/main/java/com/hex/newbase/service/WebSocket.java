@@ -19,9 +19,8 @@ import java.util.concurrent.CopyOnWriteArraySet;
 @Slf4j
 public class WebSocket {
 
-    private Session session;
-
     private static CopyOnWriteArraySet<WebSocket> webSocketSet = new CopyOnWriteArraySet<>();
+    private Session session;
 
     @OnOpen
     public void onOpen(Session session) {
@@ -42,7 +41,7 @@ public class WebSocket {
     }
 
     public void sendMessage(String message) {
-        for (WebSocket webSocket: webSocketSet) {
+        for (WebSocket webSocket : webSocketSet) {
             log.info("【websocket消息】广播消息, message={}", message);
             try {
                 webSocket.session.getBasicRemote().sendText(message);
