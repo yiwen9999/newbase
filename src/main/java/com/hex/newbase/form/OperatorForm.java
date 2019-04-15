@@ -1,6 +1,7 @@
 package com.hex.newbase.form;
 
 import lombok.Data;
+import javax.validation.constraints.NotBlank;
 
 /**
  * User: hexuan
@@ -9,15 +10,28 @@ import lombok.Data;
  */
 @Data
 public class OperatorForm {
+
+    /**
+     * 用户名
+     */
+    @NotBlank(message = "登录名称不能为空")
     private String name;
 
     /**
      * 昵称
      */
+    @NotBlank(message = "昵称不能为空")
     private String nickname;
 
     /**
      * 密码
      */
+    @NotBlank(message = "密码不能为空")
     private String password;
+
+    /**
+     * 角色id
+     */
+    @NotBlank(message = "角色id不能为空")
+    private String roleId;
 }

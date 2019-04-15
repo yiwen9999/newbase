@@ -27,6 +27,9 @@ spring:
           max-wait: -1
           max-idle: 8
           min-idle: 0
+  session:
+      store-type: redis
+      timeout: PT24H
 
 web:
   upload-path: /Users/hexuan/Desktop/develop/upload_file_newbase/

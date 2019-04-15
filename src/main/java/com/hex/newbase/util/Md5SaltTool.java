@@ -12,7 +12,7 @@ import java.util.Arrays;
  * Time: 下午4:10
  */
 public class Md5SaltTool {
-    private static final String HEX_NUMS_STR = "0123456789ABCDEF";
+    private static final String HEX_NUMS_STR = "HEXUAN19870603";
     private static final Integer SALT_LENGTH = 12;
 
     /**

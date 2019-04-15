@@ -2,6 +2,8 @@ package com.hex.newbase.service;
 
 import com.hex.newbase.domain.Operator;
 
+import java.io.UnsupportedEncodingException;
+import java.security.NoSuchAlgorithmException;
 import java.util.Optional;
 
 /**
@@ -17,5 +19,5 @@ public interface OperatorService {
 
     void delete(String id);
 
-    Operator login(String name, String password);
+    Operator login(String name, String password) throws UnsupportedEncodingException, NoSuchAlgorithmException;
 }

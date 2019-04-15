@@ -1,6 +1,9 @@
 package com.hex.newbase.util;
 
+import com.hex.newbase.enums.ResultEnum;
+import com.hex.newbase.exception.HexException;
 import org.springframework.util.StringUtils;
+import org.springframework.validation.BindingResult;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -38,6 +41,12 @@ public class HexUtil {
             }
         }
         return endTimeDate;
+    }
+
+    public static void validateBindResult(BindingResult bindingResult){
+        if (bindingResult.hasErrors()) {
+            throw new HexException(ResultEnum.ERROR_PARAM.getCode(), bindingResult.getFieldError().getDefaultMessage());
+        }
     }
 
 }

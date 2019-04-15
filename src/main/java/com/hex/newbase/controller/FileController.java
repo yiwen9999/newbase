@@ -75,20 +75,4 @@ public class FileController {
         return ResultUtil.success(Operator2OperatorVOConverter.converter(operator));
     }
 
-    @PostMapping("/testSaveFile")
-    public Result testSaveFile(String fileId, String filePath, String operatorId) {
-        System.out.println(fileId);
-        System.out.println(filePath);
-        System.out.println(operatorId);
-        return ResultUtil.success();
-    }
-
-    @PostMapping("/testSaveFileList")
-    public Result testSaveFileList(FileListForm fileListForm, String operatorId, String msg) {
-        System.out.println(fileListForm.getFileIdList().toString());
-        System.out.println(fileListForm.getFilePathList().toString());
-        System.out.println(operatorId);
-        System.out.println(msg);
-        return ResultUtil.success();
-    }
 }

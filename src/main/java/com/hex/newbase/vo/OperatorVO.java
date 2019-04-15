@@ -23,11 +23,6 @@ public class OperatorVO {
     private String nickname;
 
     /**
-     * 微信openId
-     */
-    private String openId;
-
-    /**
      * 头像路径
      */
     private String iconPath;

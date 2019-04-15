@@ -20,11 +20,11 @@ public class ExceptionHandle {
     @ExceptionHandler(value = Exception.class)
     @ResponseBody
     public Result handle(Exception e) {
-        log.error("【系统异常】{}", e);
         if (e instanceof HexException) {
             HexException hexException = (HexException) e;
             return ResultUtil.error(hexException.getCode(), hexException.getMessage());
         } else {
+            log.error("【系统异常】{}", e);
             return ResultUtil.error(ResultEnum.UN_KNOW_ERRO.getCode(), ResultEnum.UN_KNOW_ERRO.getMsg());
         }
     }

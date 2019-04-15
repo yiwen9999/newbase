@@ -5,10 +5,7 @@ import lombok.Data;
 import org.hibernate.annotations.DynamicUpdate;
 import org.hibernate.annotations.GenericGenerator;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 
@@ -47,9 +44,9 @@ public class Operator implements Serializable {
     private String password;
 
     /**
-     * 微信openId
+     * 头像文件id
      */
-    private String openId;
+    private String iconId;
 
     /**
      * 头像路径
@@ -57,26 +54,23 @@ public class Operator implements Serializable {
     private String iconPath;
 
     /**
-     * 头像id
-     */
-    private String iconId;
-
-    /**
      * 状态
      */
     private Integer state = StateEnum.START.getCode();
 
     /**
-     * 角色id
+     * 角色
      */
-    @Column(length = 50)
-    private String roleId;
+    @ManyToOne
+    @JoinColumn(name = "role_id")
+    private Role role;
 
     /**
-     * 创建人id
+     * 创建人
      */
-    @Column(length = 50)
-    private String creatorId;
+    @ManyToOne
+    @JoinColumn(name = "creator_id")
+    private Operator creator;
 
     /**
      * 创建时间
