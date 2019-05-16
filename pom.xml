@@ -108,12 +108,6 @@
             <artifactId>commons-pool2</artifactId>
         </dependency>
 
-        <!-- spring session -->
-        <dependency>
-            <groupId>org.springframework.session</groupId>
-            <artifactId>spring-session-data-redis</artifactId>
-        </dependency>
-
         <!-- JsonUtil -->
         <dependency>
             <groupId>org.codehaus.jackson</groupId>
@@ -125,6 +119,13 @@
         <dependency>
             <groupId>joda-time</groupId>
             <artifactId>joda-time</artifactId>
+        </dependency>
+
+        <!-- jwt -->
+        <dependency>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt</artifactId>
+            <version>0.7.0</version>
         </dependency>
 
         <!-- 打包时解开注释，不打包tomcat -->

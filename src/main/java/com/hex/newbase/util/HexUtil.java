@@ -3,6 +3,7 @@ package com.hex.newbase.util;
 import com.hex.newbase.domain.Operator;
 import com.hex.newbase.enums.ResultEnum;
 import com.hex.newbase.exception.HexException;
+import com.hex.newbase.vo.OperatorVO;
 import org.springframework.util.StringUtils;
 import org.springframework.validation.BindingResult;
 
@@ -58,6 +59,10 @@ public class HexUtil {
             operator = (Operator) object;
         }
         return operator;
+    }
+
+    public static OperatorVO getOperatorVO(HttpServletRequest request) {
+        return JwtUtil.parseToken(request.getHeader("Authorization"));
     }
 
 }

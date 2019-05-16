@@ -122,10 +122,11 @@ public class ChannelController {
 
     /**
      * 根据id停启用频道
+     *
      * @return
      */
     @GetMapping("/updateChannelState")
-    public Result updateChannelState(String channelId){
+    public Result updateChannelState(String channelId) {
         return ResultUtil.success(Channel2ChannelVOConverter.converter(channelService.updateChannelStateById(channelId)));
     }
 }

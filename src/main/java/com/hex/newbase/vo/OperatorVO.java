@@ -10,7 +10,7 @@ import java.io.Serializable;
  * Time: 1:29 PM
  */
 @Data
-public class OperatorVO implements Serializable{
+public class OperatorVO implements Serializable {
 
     private String id;
 

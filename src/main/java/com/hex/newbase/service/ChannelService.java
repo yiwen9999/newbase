@@ -1,7 +1,6 @@
 package com.hex.newbase.service;
 
 import com.hex.newbase.domain.Channel;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
