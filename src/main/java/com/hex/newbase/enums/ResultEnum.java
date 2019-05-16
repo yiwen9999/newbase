@@ -18,7 +18,7 @@ public enum ResultEnum {
     ERROR_PLACE(113, "请选择正确的地点"),
     USER_NAME_EXIST(114, "登录名已被使用"),
     PHONE_EXIST(115, "手机号已被使用"),
-    ERROR_LOGIN(116,"登录失败，请检查登录信息是否正确");
+    ERROR_LOGIN(116, "登录失败，请检查登录信息是否正确");
 
     private Integer code;
 

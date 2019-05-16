@@ -5,6 +5,7 @@ import com.hex.newbase.enums.StateEnum;
 import lombok.Data;
 import org.hibernate.annotations.DynamicUpdate;
 import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.Where;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -63,6 +64,12 @@ public class Channel implements Serializable {
     @OrderBy(value = "sort,create_time")
     @JsonIgnore
     private List<Channel> childChannelList;
+
+    @OneToMany(mappedBy = "parentChannel")
+    @OrderBy(value = "sort,create_time")
+    @Where(clause = "state=2")
+    @JsonIgnore
+    private List<Channel> usingChildChannelList;
 
     /**
      * 创建人

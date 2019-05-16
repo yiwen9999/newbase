@@ -1,7 +1,9 @@
 package com.hex.newbase.service;
 
 import com.hex.newbase.domain.Channel;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 /**
@@ -16,4 +18,10 @@ public interface ChannelService {
     Optional<Channel> findById(String id);
 
     void delete(String id);
+
+    List<Channel> findTopChannelList();
+
+    List<Channel> findUsingTopChannelList(Integer state);
+
+    Channel updateChannelStateById(String id);
 }

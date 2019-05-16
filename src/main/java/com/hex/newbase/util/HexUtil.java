@@ -1,10 +1,12 @@
 package com.hex.newbase.util;
 
+import com.hex.newbase.domain.Operator;
 import com.hex.newbase.enums.ResultEnum;
 import com.hex.newbase.exception.HexException;
 import org.springframework.util.StringUtils;
 import org.springframework.validation.BindingResult;
 
+import javax.servlet.http.HttpServletRequest;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -43,10 +45,19 @@ public class HexUtil {
         return endTimeDate;
     }
 
-    public static void validateBindResult(BindingResult bindingResult){
+    public static void validateBindResult(BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             throw new HexException(ResultEnum.ERROR_PARAM.getCode(), bindingResult.getFieldError().getDefaultMessage());
         }
+    }
+
+    public static Operator getOperator(HttpServletRequest request) {
+        Operator operator = null;
+        Object object = request.getSession().getAttribute("operatorInfo");
+        if (null != object) {
+            operator = (Operator) object;
+        }
+        return operator;
     }
 
 }

@@ -2,13 +2,15 @@ package com.hex.newbase.vo;
 
 import lombok.Data;
 
+import java.io.Serializable;
+
 /**
  * User: hexuan
  * Date: 2019/3/26
  * Time: 1:29 PM
  */
 @Data
-public class OperatorVO {
+public class OperatorVO implements Serializable{
 
     private String id;
 

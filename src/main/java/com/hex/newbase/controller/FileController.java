@@ -4,7 +4,6 @@ import com.hex.newbase.converter.Operator2OperatorVOConverter;
 import com.hex.newbase.domain.Operator;
 import com.hex.newbase.domain.Result;
 import com.hex.newbase.enums.ResultEnum;
-import com.hex.newbase.form.FileListForm;
 import com.hex.newbase.service.OperatorService;
 import com.hex.newbase.util.ResultUtil;
 import org.apache.commons.lang3.StringUtils;

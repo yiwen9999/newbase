@@ -46,7 +46,7 @@ public class OperatorController {
 //            redisUtil.set(httpSession.getId(), operator);
 //            cookieUtil.writeLoginToken(httpServletResponse, httpSession.getId());
 
-            httpSession.setAttribute("Operator", operator);
+            httpSession.setAttribute("operatorInfo", operator);
         }
         return ResultUtil.success(Operator2OperatorVOConverter.converter(operator));
     }
@@ -59,7 +59,7 @@ public class OperatorController {
 //        }
 //        Operator operator = (Operator) redisUtil.get(loginToken);
 
-        Operator operator = (Operator) httpSession.getAttribute("Operator");
+        Operator operator = (Operator) httpSession.getAttribute("operatorInfo");
         if (null == operator) {
             return ResultUtil.error(101, "用户未登录,无法获取当前用户的信息");
         }
@@ -73,7 +73,7 @@ public class OperatorController {
 //        cookieUtil.delLoginToken(httpServletRequest, httpServletResponse);
 //        redisUtil.del(loginToken);
 
-        httpSession.removeAttribute("Operator");
+        httpSession.removeAttribute("operatorInfo");
         return ResultUtil.success();
     }
 
@@ -82,7 +82,7 @@ public class OperatorController {
         HexUtil.validateBindResult(bindingResult);
 
         Optional<Role> roleOptional = roleService.findById(operatorForm.getRoleId());
-        if(!roleOptional.isPresent()){
+        if (!roleOptional.isPresent()) {
             throw new HexException(ResultEnum.ERROR_PARAM);
         }
 
@@ -93,5 +93,17 @@ public class OperatorController {
         operator.setPassword(Md5SaltTool.getEncryptedPwd(operator.getPassword()));
 
         return ResultUtil.success(Operator2OperatorVOConverter.converter(operatorService.save(operator)));
+    }
+
+    @PostMapping("/updatePasswordAdmin")
+    public Result updatePasswordAdmin(String operatorId, String password) throws UnsupportedEncodingException, NoSuchAlgorithmException {
+        Optional<Operator> operatorOptional = operatorService.findById(operatorId);
+        Operator operator = null;
+        if (operatorOptional.isPresent()) {
+            operator = operatorOptional.get();
+            operator.setPassword(Md5SaltTool.getEncryptedPwd(password));
+            operatorService.save(operator);
+        }
+        return ResultUtil.success(operator);
     }
 }
